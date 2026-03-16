@@ -8,12 +8,12 @@ This backend provides REST APIs for authentication, profile management, connecti
 
 ## Tech Stack
 
-Node.js
-Express.js
-MongoDB
-JWT Authentication
-Cookie-based authentication
-Mongoose ODM
+* Node.js
+* Express.js
+* MongoDB
+* JWT Authentication
+* Cookie-based authentication
+* Mongoose ODM
 
 ---
 
