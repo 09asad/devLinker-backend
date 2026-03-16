@@ -3,7 +3,14 @@ const app = express();
 const User = require("./models/user");
 const connectDB = require("./config/database");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
+app.use(
+    cors({
+        origin: "http://localhost:5173",
+        credentials: true,
+    })
+);
 app.use(express.json());       //  built-in middleware used to convert incoming json data into js object
 app.use(cookieParser());       // middleware used to parse the token/JWT from the cookie
 
@@ -68,7 +75,7 @@ app.patch("/user", async (req,res) => {
     const data = req.body;
 
     try{
-        const ALLOWED_UPDATES = ["userId","photoURL","about","gender","age","skills"];
+        const ALLOWED_UPDATES = ["userId","photoURL","about","gender","age","photoURL","skills"];
         const isUpdateAllowed = Object.keys(data).every((k) => 
             ALLOWED_UPDATES.includes(k)
         );

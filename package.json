@@ -1,5 +1,5 @@
 {
-  "name": "devtinder",
+  "name": "devlinkerbackend",
   "version": "1.0.0",
   "description": "tinder for dev",
   "main": "index.js",
@@ -17,6 +17,7 @@
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.1.5",
