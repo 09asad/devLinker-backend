@@ -38,6 +38,6 @@ connectionRequestSchema.pre("save", function(){
     }
 });
 
-const connectionRequestModel = mongoose.model("ConnectionRequest", connectionRequestSchema);
+const connectionRequestModel = mongoose.model("ConnectionRequest", connectionRequestSchema);       // connectionrequests will be the name of the collection in database
 
 module.exports = connectionRequestModel;

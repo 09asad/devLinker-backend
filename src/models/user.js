@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const userSchema = new mongoose.Schema({
     firstName : {
         type: String,
-        minLengt: 4,
+        minLength: 4,
         maxLength: 50,
         required: true
     },
@@ -72,7 +72,7 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.getJWT = async function(){
     const user = this;
 
-    const token = await jwt.sign({ _id : user._id }, "DEV@Tinder$698",{          // jwt.sign( payload, secretKey)
+    const token = await jwt.sign({ _id : user._id }, process.env.JWT_SECRET,{          // jwt.sign( payload, secretKey)
         expiresIn: '7d',
     });
 
@@ -87,6 +87,6 @@ userSchema.methods.validatePassword = async function(passwordInputByUser){
     return isPasswordValid;
 };
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);      // users will be the collection name in the database
 
 module.exports = User;
