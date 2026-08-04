@@ -19,7 +19,7 @@ userRouter.get("/user/request/received", userAuth, async (req,res) => {
         res.json({
             message: "Data fetched successfully",
             data: connectionRequests,
-        }); 
+        });
     } catch(err){
         req.statusCode(400).send("ERROR : "+ err.message);
     }
@@ -68,7 +68,10 @@ userRouter.get("/feed", userAuth, async (req,res) => {
         const skip = (page-1) * limit;
 
         const connectionRequests = await connectionRequestModel.find({
-            $or: [{ fromUserId: loggedInUser._id }, { toUserId: loggedInUser._id }],
+            $or: [
+                { fromUserId: loggedInUser._id },
+                { toUserId: loggedInUser._id }
+            ],
         }).select("fromUserId toUserId");
 
         const hideUsersFromFeed = new Set();
