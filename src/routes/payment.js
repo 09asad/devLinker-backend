@@ -108,7 +108,6 @@ paymentRouter.post("/payment/webhook", async (req, res) => {
     res.status(500).json({ msg: err.message });
   }
 });
-
 paymentRouter.get("/payment/verify", userAuth, async (req, res) => {
   const user = req.user.toJSON();
   return res.json({... user})
